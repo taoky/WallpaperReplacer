@@ -89,6 +89,11 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
+      <CompileAsManaged>true</CompileAsManaged>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,10 +155,18 @@
     <ClCompile Include="Wallpaper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FreeImage\FreeImage.h" />
     <ClInclude Include="Wallpaper.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="test.bmp" />
     <Image Include="test.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FreeImage\FreeImage.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="FreeImage\FreeImage.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

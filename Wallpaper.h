@@ -50,8 +50,8 @@ enum WallpaperStyle
     Tile,
     Center,
     Stretch,
-    Fit, 
-    Fill
+    Fit, // XP Unsupported
+    Fill // XP Unsupported
 };
 
 
