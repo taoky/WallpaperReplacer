@@ -1,0 +1,14 @@
+ 转换图片格式：
+ Image^ image = Image::FromFile("C:\\Users\\lenovo\\Documents\\WallpaperReplacer\\test.jpg");
+ image->Save("test.png", ImageFormat::Png);
+ image->Save("test123.bmp", ImageFormat::Bmp);
+
+ 设置背景：
+ WallpaperStyle style;
+ style = Center;
+ wchar_t a[] = L"C:\\Users\\lenovo\\Documents\\WallpaperReplacer\\test.jpg";
+ HRESULT hr = SetDesktopWallpaper(a, style);
+ if (FAILED(hr))
+ {
+	 MessageBox(NULL, L"Error", L"a", MB_OK);
+ }

@@ -39,13 +39,8 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FreeImage\FreeImage.dll">
+    <Text Include="helper.txt">
       <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="FreeImage\FreeImage.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
+    </Text>
   </ItemGroup>
 </Project>
