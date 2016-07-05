@@ -93,9 +93,9 @@
       <CompileAsManaged>true</CompileAsManaged>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>Async</ExceptionHandling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -157,7 +157,6 @@
     <ClCompile Include="Wallpaper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FreeImage\FreeImage.h" />
     <ClInclude Include="Wallpaper.h" />
   </ItemGroup>
   <ItemGroup>
