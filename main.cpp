@@ -97,6 +97,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	WriteTimeToLog(LogFile);
 	WriteLog("\r\n", LogFile);
 	
+	// Creating temporary directory in %TMP%
+	TCHAR TMPDic[MAX];
+	GetEnvironmentVariable(L"TMP", TMPDic, MAX);
+	lstrcat(TMPDic, TEXT("\\WallpaperReplacer"));
+	CreateDirectory(TMPDic, NULL); // Create a directory no matter exists or not
+	
+
 
 	return 0;
 }
