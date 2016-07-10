@@ -28,14 +28,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="test.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="test.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="helper.txt">
       <Filter>Resource Files</Filter>
     </Text>
