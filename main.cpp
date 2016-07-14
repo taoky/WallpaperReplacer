@@ -13,29 +13,27 @@ using namespace System::Drawing::Imaging;
 const int MAX = 50000;
 BOOL isnotXP = SupportJpgAsWallpaper();
 HANDLE LogFile;
-
-// #pragma unmanaged
-// This pragma is used to set breakpoint in unmanaged (Not CLR) C++ code.
+DWORD AvoidCrash = NULL;
+// I don't know why I have to use this way to fill the 4th para of WriteFile(). But I know that if not, 
+// this program could crash in Windows XP.
+// It's too unelegant.
 
 void WriteLog(LPSTR lpWord, HANDLE hFile)
 {
-	WriteFile(hFile, lpWord, strlen(lpWord), NULL, NULL);
+	WriteFile(hFile, lpWord, strlen(lpWord), &AvoidCrash, NULL);	
 }
 
 void WriteLog(LPTSTR lpWord, HANDLE hFile)
 {
 	char Word[MAX];
 	WideCharToMultiByte(CP_ACP, 0, lpWord, -1, Word, MAX, NULL, NULL); // Unicode to ANSI
-	WriteFile(hFile, Word, strlen(Word), NULL, NULL);
+	WriteFile(hFile, Word, strlen(Word), &AvoidCrash, NULL);
 }
 
 void WriteTimeToLog()
 {
 	SYSTEMTIME NowTime;
 	TCHAR      ReturnTimeString[MAX];
-	
-	WriteLog("Test", LogFile);
-	WriteLog(L"/Test/", LogFile);
 	GetLocalTime(&NowTime);
 	wsprintf(ReturnTimeString, L"%d Äê %d ÔÂ %d ÈÕ %d:%d:%d:%d ", NowTime.wYear, NowTime.wMonth, NowTime.wDay, NowTime.wHour, NowTime.wMinute, NowTime.wSecond, NowTime.wMilliseconds);
 	WriteLog(ReturnTimeString, LogFile);
@@ -131,7 +129,6 @@ void CopyPic(LPTSTR FromPath, LPTSTR ToPath)
 {
 	
 } */
-
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	// Configuring settings.ini
@@ -217,7 +214,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	if (LogFile == INVALID_HANDLE_VALUE)
 		MessageBox(NULL, TEXT("There is something wrong with the Log file. No log will be recorded."), TEXT("Warning"), MB_OK);
 
-	WriteLog(L"Welcome to use WallpaperReplacer. Time: ", LogFile);
+	WriteLog("Welcome to use WallpaperReplacer. Time: ", LogFile);
 	WriteTimeToLog();
 	WriteLog("\r\n", LogFile);
 	
@@ -261,7 +258,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	else
 	{
-		WriteFile(FlagFile, "!!!!!DO NOT EDIT!!!!!", 21, NULL, NULL);
+		WriteFile(FlagFile, "!!!!!DO NOT EDIT!!!!!", 21, &AvoidCrash, NULL);
 		SetFileTime(FlagFile, NULL, NULL, &iniLastChangeFileTime);
 		WriteTimeToLog();
 		WriteLog("FlagFile has set up. Copying Pictures.\r\n", LogFile);
@@ -286,6 +283,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		lstrcat(SetPicPath, L"\\*");
 		WIN32_FIND_DATA PicData;
 		HANDLE PicFile = FindFirstFile(SetPicPath, &PicData);
+		  MessageBox(NULL, SetPicPath, L"SetPicPath", NULL);
 		do
 		{
 			if (lstrcmp(PicData.cFileName, L"Flag") && 
@@ -297,6 +295,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				wsprintf(Path, L"%s\\%s", TMPDic, PicData.cFileName);
 				WriteLog(Path, LogFile);
 				WriteLog("\r\n", LogFile);
+				   MessageBox(NULL, Path, L"P", NULL);
 				SetDesktopWallpaper(Path, WStyle);
 				Sleep(Time * 1000);
 			}

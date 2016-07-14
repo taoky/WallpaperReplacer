@@ -9,6 +9,8 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release with debugging for Windows XP|x64 = Release with debugging for Windows XP|x64
+		Release with debugging for Windows XP|x86 = Release with debugging for Windows XP|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -17,6 +19,10 @@ Global
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Debug|x64.Build.0 = Debug|x64
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Debug|x86.ActiveCfg = Debug|Win32
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Debug|x86.Build.0 = Debug|Win32
+		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release with debugging for Windows XP|x64.ActiveCfg = Release with debugging for Windows XP|x64
+		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release with debugging for Windows XP|x64.Build.0 = Release with debugging for Windows XP|x64
+		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release with debugging for Windows XP|x86.ActiveCfg = Release with debugging for Windows XP|Win32
+		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release with debugging for Windows XP|x86.Build.0 = Release with debugging for Windows XP|Win32
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release|x64.ActiveCfg = Release|x64
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release|x64.Build.0 = Release|x64
 		{1AE3F443-FB56-455A-A11E-EDAE4CF3D616}.Release|x86.ActiveCfg = Release|Win32

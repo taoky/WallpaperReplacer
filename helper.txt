@@ -12,3 +12,6 @@
  {
 	 MessageBox(NULL, L"Error", L"a", MB_OK);
  }
+
+  对话框：
+  MessageBox(NULL, TEXT("内容"), TEXT("标题"), MB_OK);
