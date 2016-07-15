@@ -33,7 +33,7 @@ Log: Where you want to put the log file.
 
 Location: Where the pictures are.
 
-Time: How long the time between each picture.
+Time: How long the time between each picture (Seconds)
 
 Style: You can choose **Tile**, **Center** or **Stretch**.
 
