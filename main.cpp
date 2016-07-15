@@ -2,6 +2,7 @@
 #include "Wallpaper.h" // From M$
 #using <system.drawing.dll> // C++/CLR
 using namespace std;
+using namespace System;
 using namespace System::Drawing;
 using namespace System::Drawing::Imaging;
 
@@ -117,7 +118,10 @@ void CopyPic(LPTSTR FromPath, LPTSTR ToPath)
 					WriteLog("Converting", LogFile);
 					System::String ^CLRFilePath = gcnew System::String(ToFilePath);
 					Image^ image = Image::FromFile(CLRFilePath);
-					image->Save(CLRFilePath + ".bmp", ImageFormat::Bmp);
+					int l = lstrlen(ToFilePath);
+					ToFilePath[l - 1] = 'p', ToFilePath[l - 2] = 'm', ToFilePath[l - 3] = 'b', ToFilePath[l - 4] = '.';
+					System::String ^BmpFilePath = gcnew System::String(ToFilePath);
+					image->Save(BmpFilePath, ImageFormat::Bmp);
 				}
 			}
 		} while (FindNextFile(hFile, &hFileData));
@@ -283,7 +287,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		lstrcat(SetPicPath, L"\\*");
 		WIN32_FIND_DATA PicData;
 		HANDLE PicFile = FindFirstFile(SetPicPath, &PicData);
-		  MessageBox(NULL, SetPicPath, L"SetPicPath", NULL);
+		 // MessageBox(NULL, SetPicPath, L"SetPicPath", NULL);
 		do
 		{
 			if (lstrcmp(PicData.cFileName, L"Flag") && 
@@ -295,7 +299,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				wsprintf(Path, L"%s\\%s", TMPDic, PicData.cFileName);
 				WriteLog(Path, LogFile);
 				WriteLog("\r\n", LogFile);
-				   MessageBox(NULL, Path, L"P", NULL);
+				//   MessageBox(NULL, Path, L"P", NULL);
 				SetDesktopWallpaper(Path, WStyle);
 				Sleep(Time * 1000);
 			}
