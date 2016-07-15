@@ -234,10 +234,14 @@
     <ClCompile Include="Wallpaper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Wallpaper.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="helper.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WallpaperReplacer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
