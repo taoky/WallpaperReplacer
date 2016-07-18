@@ -12,7 +12,7 @@ and
 ## History
 I had never touched Win32 programming before this summer vocation. 
 
-However, when in school, Jin Ouliang had a desire to change the wallpaper of our classroom's computer. Windows XP is installed so there isn't any built-in function to change the wallpapers automatically. There are some apps online but they are not so trustworthy. For this reason I write this small program to aid changing wallpapers.
+However, when in school, Jin Ouliang, my classmate, had a desire to change the wallpaper of our classroom's computer. Windows XP is installed so there isn't any built-in function to change the wallpapers automatically. There are some apps online but they are not so trustworthy. For this reason I write this small program to aid changing wallpapers.
 
 (There are many dirty hacks in the code. Sorry for that.)
 
@@ -24,7 +24,7 @@ it looks like this:
 ```
 [Settings]
 Log=WallpaperReplacer.log
-Location=C:\Users\lenovo\Documents\test
+Location=C:\Users\tao\Pictures\Wallpapers
 Time=300
 Style=Stretch
 ```
